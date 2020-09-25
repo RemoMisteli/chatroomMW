@@ -1,0 +1,25 @@
+# ignore build output directory
+module/*/target
+/target/
+
+# generated Logfiles when running localy
+*.log
+
+# ignore eclipse configuration files
+.project
+.classpath
+.settings/
+module/*/.project
+module/*/.classpath
+module/*/.springBeans
+module/*/.settings/
+
+# ignore Intellij configuration files
+!/.idea/
+/.idea/*
+!/.idea/runConfigurations/
+*.iml
+
+# ignore OSX
+.DS_Store
+module/fluance-cockpit-core/.factorypath
