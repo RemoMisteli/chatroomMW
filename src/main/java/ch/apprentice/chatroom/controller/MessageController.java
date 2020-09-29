@@ -32,10 +32,12 @@ public class MessageController {
 	@GetMapping(path = "/send/{name}/{message}")
 	public void setMessage(@PathVariable String name, @PathVariable String message) {
 
-		System.out.println();
-		System.out.println();
-
-		System.out.println(name + " " + message);
+		
+		MessageEntity entity = new MessageEntity();
+		entity.setMessage(message);
+		entity.setUser(name);
+		
+		messageDao.save(entity);
 
 
 	}
