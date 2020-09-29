@@ -2,6 +2,7 @@ package ch.apprentice.chatroom.controller;
 
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.apprentice.chatroom.dao.MessageDao;
+import ch.apprentice.chatroom.entities.MessageEntity;
 
 @RestController(value = "chatroom/messages")
 @RequestMapping("chatroom/messages")
@@ -21,12 +23,8 @@ public class MessageController {
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping(path = "")
-	public String getMessage() {
-		
-		
-		Date date= new Date();
-		
-		return date.toString();
+	public List<MessageEntity> getMessage() {
+		return messageDao.getAll();
 	}
 
 	
@@ -44,9 +42,9 @@ public class MessageController {
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping(path = "/{id}")
-	public String setMessageById(@PathVariable int id) {
+	public MessageEntity getMessageById(@PathVariable int id) {
 
-		return messageDao.getById(id).getMessage();
+		return messageDao.getById(id);
 
 
 	}
