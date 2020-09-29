@@ -20,4 +20,10 @@ public class MessageDao {
 	public List<MessageEntity> getAll(){
 		return messageRepository.findAll();
 	}
+	
+	
+	public void save(MessageEntity entity) {
+	
+		messageRepository.save(entity);
+	}
 }

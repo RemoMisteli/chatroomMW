@@ -1,11 +1,15 @@
 package ch.apprentice.chatroom.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "messages")
@@ -21,6 +25,14 @@ public class MessageEntity {
 
 	@Column(name = "content")
 	private String message;
+	
+	@CreationTimestamp
+	@Column(name="date")
+	private Date date;
+	
+	
+
+	
 
 	public int getId() {
 		return id;
@@ -44,6 +56,14 @@ public class MessageEntity {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }
