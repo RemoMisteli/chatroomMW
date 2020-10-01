@@ -50,4 +50,19 @@ public class MessageController {
 
 
 	}
+	
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping(path = "/search/user/{user}")
+	public List<MessageEntity> findMessageByUser(@PathVariable String user){
+		
+		return messageDao.findByUser(user);
+	}
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping(path = "/search/message/{message}")
+	public List<MessageEntity> findMessageByMessage(@PathVariable String message){
+		
+		return messageDao.findByMessage(message);
+	}
 }

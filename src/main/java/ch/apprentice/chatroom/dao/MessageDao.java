@@ -26,4 +26,14 @@ public class MessageDao {
 	
 		messageRepository.save(entity);
 	}
+	
+	public List<MessageEntity> findByUser(String user){
+		
+		return messageRepository.findByUser(user);
+	}
+	
+public List<MessageEntity> findByMessage(String message){
+		
+		return messageRepository.findByMessage(message);
+	}
 }
