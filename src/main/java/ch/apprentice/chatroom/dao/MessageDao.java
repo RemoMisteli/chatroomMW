@@ -28,12 +28,12 @@ public class MessageDao {
 	}
 	
 	public List<MessageEntity> findByUser(String user){
-		
-		return messageRepository.findByUser(user);
+		user="%"+user+"%";
+		return messageRepository.findUser(user);
 	}
 	
 public List<MessageEntity> findByMessage(String message){
-		
-		return messageRepository.findByMessage(message);
+	message="%"+message+"%";
+		return messageRepository.findMessage(message);
 	}
 }

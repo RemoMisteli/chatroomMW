@@ -3,6 +3,8 @@ package ch.apprentice.chatroom.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import ch.apprentice.chatroom.entities.MessageEntity;
@@ -12,9 +14,16 @@ import ch.apprentice.chatroom.entities.MessageEntity;
 public interface MessageRepository extends JpaRepository<MessageEntity, Integer>{
  
 	
-	List<MessageEntity> findByUser(String user);
 	
-	List<MessageEntity> findByMessage(String content);
+	@Query("SELECT m FROM MessageEntity m WHERE user LIKE :user")
+    public List<MessageEntity> findUser(@Param("user") String user);
+	
+	
+	@Query("SELECT m FROM MessageEntity m WHERE content LIKE :message")
+    public List<MessageEntity> findMessage(@Param("message") String message);
+	
+	
+
 		
 		
 	
