@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.apprentice.chatroom.dao.MessageDao;
 import ch.apprentice.chatroom.entities.MessageEntity;
 
-@RestController(value = "chatroom/messages")
-@RequestMapping("chatroom/messages")
+@RestController(value = "remo/chatroom/messages")
+@RequestMapping("remo/chatroom/messages")
 public class MessageController {
 
 	@Autowired
